@@ -1,0 +1,14 @@
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\bin\Debug\net10.0\projeto_rpg_texto.exe
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\bin\Debug\net10.0\projeto_rpg_texto.deps.json
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\bin\Debug\net10.0\projeto_rpg_texto.runtimeconfig.json
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\bin\Debug\net10.0\projeto_rpg_texto.dll
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\bin\Debug\net10.0\projeto_rpg_texto.pdb
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\projeto_rpg_texto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\projeto_rpg_texto.AssemblyInfoInputs.cache
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\projeto_rpg_texto.AssemblyInfo.cs
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\projeto_rpg_texto.csproj.CoreCompileInputs.cache
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\projeto_rpg_texto.dll
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\refint\projeto_rpg_texto.dll
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\projeto_rpg_texto.pdb
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\projeto_rpg_texto.genruntimeconfig.cache
+C:\Users\lucas\Documents\vscode\projeto_rpg_texto\obj\Debug\net10.0\ref\projeto_rpg_texto.dll
