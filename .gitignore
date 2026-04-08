@@ -1,0 +1,13 @@
+# Pastas de compilação (arquivos temporários)
+bin/
+obj/
+
+# Arquivos executáveis e bibliotecas geradas
+*.exe
+*.dll
+*.pdb
+
+# Configurações do VS Code ou Visual Studio
+.vscode/
+*.user
+*.suo
