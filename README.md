@@ -38,10 +38,3 @@ O projeto busca equilibrar o combate e o treino ativo com sistemas de coleta e p
 * **Linguagem:** C#
 * **Ambiente:** .NET Console Application
 * **Versionamento:** Git & GitHub
-
----
-
-* **Desenvolvido por Lucas Nery Miranda**
-* **Desenvolvido por Otto**
-* **Desenvolvido por Bernardo**
-* **Desenvolvido por Erick**
