@@ -41,7 +41,7 @@ O projeto busca equilibrar o combate e o treino ativo com sistemas de coleta e p
 
 ---
 
-**Desenvolvido por Lucas Nery Miranda**
-**Desenvolvido por Otto**
-**Desenvolvido por Bernardo**
-**Desenvolvido por Erick**
+* **Desenvolvido por Lucas Nery Miranda**
+* **Desenvolvido por Otto**
+* **Desenvolvido por Bernardo**
+* **Desenvolvido por Erick**
