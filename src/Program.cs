@@ -30,7 +30,7 @@ public class Arqueiro : Personagem
     public Arqueiro()
     {
         nome = "";
-        vida = 101;
+        vida = 100;
         mana = 100;
         forca = 10;
         defesa = 10;
