@@ -11,20 +11,18 @@ Este repositório serve como um laboratório prático para o domínio de:
 * **Gerenciamento de Estado:** Controle de inventário, atributos e persistência de progresso.
 * **Lógica Matemática:** Fórmulas para ganho de experiência, evolução de skills e taxas de sucesso em crafting/mineração.
 
----
-
 ## 🎮 Funcionalidades em Desenvolvimento
 
-Baseado no ecossistema de Rucoy Online, o projeto implementa:
+O projeto busca equilibrar o combate e o treino ativo com sistemas de coleta e produção:
 
-### 👤 Progressão do Herói
+### 👤 Progressão e Combate (Base Rucoy)
 * **Level & Skills:** Evolução de nível base e treinamento especializado (Melee, Distance, Magic e Defense).
-* **Training System:** Mecânica de treino dedicada para o aumento progressivo de habilidades.
+* **Training System:** Mecânica de treino dedicada para o aumento progressivo de habilidades através da repetição.
 
-### ⚒️ Coleta e Produção
-* **Mineração:** Sistema de coleta de matérias-primas em diferentes zonas.
+### ⚒️ Profissões e Gestão (Base Melvor)
+* **Mineração:** Sistema de coleta de matérias-primas com diferentes níveis de dificuldade e raridade.
 * **Crafting:** Transformação de recursos em equipamentos e ferramentas de maior nível.
-* **Inventário:** Gestão de itens consumíveis e equipamentos ativos.
+* **Inventário & Skill Tree:** Gestão de itens consumíveis, equipamentos ativos e planejamento de evolução.
 
 ---
 
