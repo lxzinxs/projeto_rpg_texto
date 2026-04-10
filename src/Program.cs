@@ -1,15 +1,48 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-public class Personagem
+﻿public class Personagem
 {
+    Personagem(string nome)
+    {
+        this.nome = nome;
+    }
+    //atributos
     public string nome;
-    public int vida;
-    public int mana;
-    public int forca;
-    public int defesa;
+    public double vida;
+    public double danoBase;
+    public double defesa;
+    public double nivel = 1;
+    public double XpAtual = 0;
+    double NextLevelXp = 100;
 
-    public Aleatorio.(){
-        
+    //subir o nivel
+    public void SubirNivel()
+    {
+        XpAtual = XpAtual - NextLevelXp;
+        NextLevelXp = NextLevelXp * 1.015;
+        danoBase = danoBase * 1.25;
+        vida = vida * 1.25;
+        defesa = defesa * 1.25;
+        nivel = nivel + 1;
+    }
+
+    //elevar forca conforme o nivel
+    public double XpNextForca()
+    {
+        nivel = nivel * 1.015;
+        return nivel;
+    }
+
+    //dar dano no monstro
+    public void darDano(Monstro inimigo)
+    {
+        Random aleatorio = new Random();
+        int danoCausado = aleatorio.Next((int)danoBase, (int)(danoBase * 2));
+        inimigo.recebeDano(danoCausado);
+    }
+
+    //receber dano do monstro
+    public void recebeDano(int dano)
+    {
+        vida = vida - dano;
     }
 }
 
@@ -18,10 +51,9 @@ public class Guerreiro : Personagem
     public Guerreiro()
     {
         nome = "";
-        vida = 100;
-        mana = 100;
-        forca = 10;
-        defesa = 10;
+        vida = 125;
+        danoBase = 8;
+        defesa = 15;
     }
 }
 
@@ -31,8 +63,7 @@ public class Arqueiro : Personagem
     {
         nome = "";
         vida = 100;
-        mana = 100;
-        forca = 10;
+        danoBase = 10;
         defesa = 10;
     }
 }
@@ -41,31 +72,34 @@ public class Mago : Personagem
 {
     public Mago()
     {
+        //atributos
         nome = "";
-        vida = 100;
-        mana = 100;
-        forca = 20;
+        vida = 80;
+        danoBase = 15;
         defesa = 5;
     }
 }
 
-public class Nivel : Personagem
-{
-    int nivel = 1;
-}
-
-public class Dano : Personagem
-{
-        Random dano = new Random();
-        int danoGuerreiro = dano.Next(10, 21);
-}
-
 public class Monstro
 {
+    //variaveis
     public int vida;
-    public int mana;
-    public int forca;
+    public int danoBase;
     public int defesa;
+
+    //dar dano no player
+    public void darDano(Personagem inimigo)
+    {   
+        Random aleatorio = new Random();
+        int danoCausado = danoBase;
+        inimigo.recebeDano(danoCausado);
+    }
+
+    //receber dano do player
+    public void recebeDano(int dano)
+    {
+        vida = vida - dano;
+    }
 }
 
 public class Goblin : Monstro
@@ -73,16 +107,12 @@ public class Goblin : Monstro
     public Goblin()
     {
         Random aleatorio = new Random();
-        int vidaGoblin = aleatorio.Next(9, 101);
+        int vidaGoblin = 150;
         vida = vidaGoblin;
-    
-        int manaGoblin = aleatorio.Next(9, 101);
-        mana = manaGoblin;
-    
-        int forcaGoblin = aleatorio.Next(9, 101);
-        forca = forcaGoblin;
-        
-        int defesaGoblin = aleatorio.Next(9, 101);
+
+        danoBase = 10;
+
+        int defesaGoblin = aleatorio.Next(9, 11);
         defesa = defesaGoblin;
     }
 }
@@ -92,15 +122,12 @@ public class Assasino : Monstro
     public Assasino()
     {
         Random aleatorio = new Random();
-        int vidaAssasino = aleatorio.Next(49, 149);
+        int vidaAssasino = aleatorio.Next(49, 151);
         vida = vidaAssasino;
-    
-        int manaAssasino = aleatorio.Next(9, 101);
-        mana = manaAssasino;
-    
+
         int forcaAssasino = aleatorio.Next(9, 101);
-        forca = forcaAssasino;
-        
+        danoBase = forcaAssasino;
+
         int defesaAssasino = aleatorio.Next(9, 101);
         defesa = defesaAssasino;
     }
@@ -113,34 +140,39 @@ public class Orc : Monstro
         Random aleatorio = new Random();
         int vidaOrc = aleatorio.Next(149, 301);
         vida = vidaOrc;
-    
-        int manaOrc = aleatorio.Next(149, 301);
-        mana = manaOrc;
-    
+
         int forcaOrc = aleatorio.Next(149, 301);
-        forca = forcaOrc;
-        
+        danoBase = forcaOrc;
+
         int defesaOrc = aleatorio.Next(149, 301);
         defesa = defesaOrc;
     }
 }
-
 
 public class Jogo
 {
     public static void Main(string[] args)
     {
         bool JogoRodando = true;
-        
+
         while (JogoRodando == true)
         {
+            Console.WriteLine(@"
+██████╗░██████╗░░██████╗░  ░█████╗░░█████╗░██████╗░██╗░░░██╗██╗░░░░░░█████╗░░██████╗░█████╗░
+██╔══██╗██╔══██╗██╔════╝░  ██╔══██╗██╔══██╗██╔══██╗██║░░░██║██║░░░░░██╔══██╗██╔════╝██╔══██╗
+██████╔╝██████╔╝██║░░██╗░  ██║░░╚═╝███████║██████╦╝██║░░░██║██║░░░░░██║░░██║╚█████╗░██║░░██║
+██╔══██╗██╔═══╝░██║░░╚██╗  ██║░░██╗██╔══██║██╔══██╗██║░░░██║██║░░░░░██║░░██║░╚═══██╗██║░░██║
+██║░░██║██║░░░░░╚██████╔╝  ╚█████╔╝██║░░██║██████╦╝╚██████╔╝███████╗╚█████╔╝██████╔╝╚█████╔╝
+╚═╝░░╚═╝╚═╝░░░░░░╚═════╝░  ░╚════╝░╚═╝░░╚═╝╚═════╝░░╚═════╝░╚══════╝░╚════╝░╚═════╝░░╚════╝░");
             Console.Write("Digite o nome do seu personagem: ");
             string nome = Console.ReadLine();
-            
-            bool opcaoValida = false;
 
-            while (opcaoValida == false)
+            bool opcaoValidaPersonagem = false;
+
+            while (opcaoValidaPersonagem == false)
             {
+
+
                 Console.WriteLine("Escolha a classe do seu personagem: \n1 - Guerreiro \n2 - Arqueiro \n3 - Mago");
                 int opcao = int.Parse(Console.ReadLine());
 
@@ -148,42 +180,56 @@ public class Jogo
                 {
                     Console.WriteLine("Você escolheu a classe Guerreiro!");
                     Guerreiro guerreiro = new Guerreiro();
-
-                    //treinar
-                    Console.WriteLine("deseja treinar? \n1 - Sim \n2 - Não");
-                    if (int.Parse(Console.ReadLine()) == 1)
-                    {
-                        
-                    }
-                    opcaoValida = true;
+                    opcaoValidaPersonagem = true;
                 }
                 else if (opcao == 2)
                 {
                     Console.WriteLine("Você escolheu a classe Arqueiro!");
                     Arqueiro arqueiro = new Arqueiro();
-                    opcaoValida = true;
+                    opcaoValidaPersonagem = true;
                 }
                 else if (opcao == 3)
                 {
                     Console.WriteLine("Você escolheu a classe Mago!");
                     Mago mago = new Mago();
-                    opcaoValida = true;
+                    opcaoValidaPersonagem = true;
                 }
                 else
                 {
                     Console.WriteLine("Opção inválida!");
-                    opcaoValida = false;
+                    opcaoValidaPersonagem = false;
                 }
             }
-            Goblin a = new Goblin();
-            Console.Write($"{a.vida}, {a.mana}, {a.forca}, {a.defesa}\n");
-            Assasino b = new Assasino();
-            Console.Write($"{b.vida}, {b.mana}, {b.forca}, {b.defesa}\n");
-            Orc c = new Orc();
-            Console.Write($"{c.vida}, {c.mana}, {c.forca}, {c.defesa}\n");    
 
+            bool opcaoValidaAcao = false;
 
+            //treinar - aventurar
+            while (opcaoValidaAcao == false)
+            {
+                Console.WriteLine("Digite a sua opção: \n1 - treinar\n2 - aventurar\n3 - ir para a dungeon");
+                int acao = int.Parse(Console.ReadLine());
 
+                if (acao == 1)
+                {
+                    Console.Write("Você treinou!");
+                    opcaoValidaAcao = true;
+                }
+                else if (acao == 2)
+                {
+                    Console.Write("Você está aventurando!");
+                    opcaoValidaAcao = true;
+                }
+                else if (acao == 3)
+                {
+                    Console.Write("Você entrou na dungeon!");
+                    opcaoValidaAcao = true;
+                }
+                else
+                {
+                    Console.Write("Escolha uma opção váilida!");
+                    opcaoValidaAcao = false;
+                }
+            }
 
             Console.ReadKey();
         }
