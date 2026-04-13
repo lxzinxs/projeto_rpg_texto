@@ -33,7 +33,7 @@ public class Goblin : Monstro
 
         danoBase = 10;
 
-        int defesaGoblin = aleatorio.Next(9, 11);
+        int defesaGoblin = aleatorio.Next(9, 16);
         defesa = defesaGoblin;
     }
 }
@@ -43,14 +43,13 @@ public class Assasino : Monstro
     public Assasino()
     {
         Random aleatorio = new Random();
-        int vidaAssasino = aleatorio.Next(49, 151);
-        vida = vidaAssasino;
+        int vidaAssassino = 300;
+        vida = vidaAssassino;
 
-        int forcaAssasino = aleatorio.Next(9, 101);
-        danoBase = forcaAssasino;
+        danoBase = 30;
 
-        int defesaAssasino = aleatorio.Next(9, 101);
-        defesa = defesaAssasino;
+        int defesaAssassino = aleatorio.Next(25, 51);
+        defesa = defesaAssassino;
     }
 }
 
@@ -59,13 +58,12 @@ public class Orc : Monstro
     public Orc()
     {
         Random aleatorio = new Random();
-        int vidaOrc = aleatorio.Next(149, 301);
+        int vidaOrc = 500;
         vida = vidaOrc;
 
-        int forcaOrc = aleatorio.Next(149, 301);
-        danoBase = forcaOrc;
+        danoBase = 50;
 
-        int defesaOrc = aleatorio.Next(149, 301);
+        int defesaOrc = aleatorio.Next(50, 76);
         defesa = defesaOrc;
     }
 }
