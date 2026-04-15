@@ -24,7 +24,7 @@ public class Jogo
 ██╔══██╗██╔═══╝░██║░░╚██╗  ██║░░██╗██╔══██║██╔══██╗██║░░░██║██║░░░░░██║░░██║░╚═══██╗██║░░██║
 ██║░░██║██║░░░░░╚██████╔╝  ╚█████╔╝██║░░██║██████╦╝╚██████╔╝███████╗╚█████╔╝██████╔╝╚█████╔╝
 ╚═╝░░╚═╝╚═╝░░░░░░╚═════╝░  ░╚════╝░╚═╝░░╚═╝╚═════╝░░╚═════╝░╚══════╝░╚════╝░╚═════╝░░╚════╝░");
-            Console.Write("Digite o nome do seu personagem: \n");
+            Console.WriteLine("Digite o nome do seu personagem:");
             string nome = Console.ReadLine() ?? "Heroi";
             Console.WriteLine("\nBem vindo ao jogo, "+ nome +"!\n");
 
@@ -34,30 +34,30 @@ public class Jogo
             {
 
 
-                Console.WriteLine("Escolha a classe do seu personagem: \n1 - Guerreiro \n2 - Arqueiro \n3 - Mago");
+                Console.WriteLine("Escolha a classe do seu personagem: \n[ 1 ] - Guerreiro \n[ 2 ]  - Arqueiro \n[ 3 ] - Mago");
                 int opcao = int.Parse(Console.ReadLine() ?? "0");
 
                 if (opcao == 1)
                 {
-                    Console.WriteLine("Você escolheu a classe Guerreiro!");
+                    Console.WriteLine("\nVocê escolheu a classe Guerreiro!");
                     jogador = new Guerreiro(nome);
                     opcaoValidaPersonagem = true;
                 }
                 else if (opcao == 2)
                 {
-                    Console.WriteLine("Você escolheu a classe Arqueiro!");
+                    Console.WriteLine("\nVocê escolheu a classe Arqueiro!");
                     jogador = new Arqueiro(nome);
                     opcaoValidaPersonagem = true;
                 }
                 else if (opcao == 3)
                 {
-                    Console.WriteLine("Você escolheu a classe Mago!");
+                    Console.WriteLine("\nVocê escolheu a classe Mago!");
                     jogador = new Mago(nome);
                     opcaoValidaPersonagem = true;
                 }
                 else
                 {
-                    Console.WriteLine("Opção inválida!");
+                    Console.WriteLine("\nOpção inválida!");
                     opcaoValidaPersonagem = false;
                 }
             }
@@ -67,47 +67,63 @@ public class Jogo
             //treinar - aventurar
             while (opcaoValidaAcao == false)
             {
-                Console.WriteLine("Digite a sua opção: \n1 - treinar\n2 - aventurar\n3 - ir para a dungeon");
+                Console.WriteLine("\nDigite a sua opção: \n[ 1 ] - treinar\n[ 2 ] - aventurar\n[ 3 ] - ir para a dungeon");
                 int acao = int.Parse(Console.ReadLine() ?? "0");
 
                 if (acao == 1)
                 {
-                    Console.WriteLine("Você treinou!");
+                    Console.WriteLine("\nVocê treinou!");
                     opcaoValidaAcao = true;
                 }
                 else if (acao == 2)
                 {
-                    Console.WriteLine("Você está aventurando!");
+                    Console.WriteLine("\nVocê está aventurando!");
                     opcaoValidaAcao = true;
                 }
                 else if (acao == 3)
                 {
-                    Console.WriteLine("Você entrou na dungeon!");
-                    Console.WriteLine("Deseja qual dungeon deseja entrar: \n1 - Goblin [recomendado nivel 0]\n2 - Assassino [recomendado nível 25]\n3 - Orc [recomendado nível 50+]");
+                    Console.WriteLine("\nVocê entrou na dungeon!");
+                    Console.WriteLine("\nQual dungeon deseja entrar: \n[ 1 ] - Goblin [recomendado nivel 0+]\n[ 2 ] - Assassino [recomendado nível 25+]\n[ 3 ] - Orc [recomendado nível 50+]");
                     int opcaoDungeon = int.Parse(Console.ReadLine());
                     opcaoValidaAcao = true;
 
                     if(opcaoDungeon == 1)
                     {
+                        if(jogador.vida <= 0)
+                        {
+                            Console.WriteLine("\nVocê está morto!\nReinicie o jogo!");
+                            opcaoValidaPersonagem = false;
+                        }
                         spawnar.GerarGoblin(jogador);
+                        opcaoValidaAcao = false;
                     }
                     else if(opcaoDungeon == 2)
                     {
+                        if(jogador.vida <= 0)
+                        {
+                            Console.WriteLine("\nVocê está morto!\nReinicie o jogo!");
+                            opcaoValidaPersonagem = false;
+                        }
                         spawnar.GerarAssassino(jogador);
+                        opcaoValidaAcao = false;
                     }
                     else if(opcaoDungeon == 3)
                     {
+                        if(jogador.vida <= 0)
+                        {
+                            Console.WriteLine("\nVocê está morto!\nReinicie o jogo!");
+                            opcaoValidaPersonagem = false;
+                        }
                         spawnar.GerarOrc(jogador);
+                        opcaoValidaAcao = false;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Escolha uma opção váilida!");
+                    Console.WriteLine("\nEscolha uma opção váilida!");
                     opcaoValidaAcao = false;
                 }
             }
-
-            Console.ReadKey();
         }
     }
 }

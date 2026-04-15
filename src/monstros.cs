@@ -28,7 +28,7 @@ public class Goblin : Monstro
     public Goblin()
     {
         Random aleatorio = new Random();
-        int vidaGoblin = 150;
+        int vidaGoblin = 125;
         vida = vidaGoblin;
 
         danoBase = 10;
@@ -43,7 +43,7 @@ public class Assasino : Monstro
     public Assasino()
     {
         Random aleatorio = new Random();
-        int vidaAssassino = 300;
+        int vidaAssassino = 200;
         vida = vidaAssassino;
 
         danoBase = 30;

@@ -9,38 +9,38 @@ public class Geradores
     public void GerarGoblin(Personagem jogador)
     {
         int quantidade = aleatorio.Next(1, 6);
-        Console.WriteLine($"Apareceram {quantidade} Goblins!");
+        Console.WriteLine($"\nApareceram {quantidade} Goblins!");
 
         for (int i = 0; i < quantidade; i++)
         {
             Goblin goblin = new Goblin();
-            Console.WriteLine($"Inimigo {i + 1}: \t vida {goblin.vida} \t| dano {goblin.danoBase} \t| defesa {goblin.defesa}");
+            Console.WriteLine($"\nInimigo {i + 1}: \t vida {goblin.vida} \t| dano {goblin.danoBase} \t| defesa {goblin.defesa}");
 
             while (goblin.vida > 0 && jogador.vida > 0)
             {
                 jogador.darDano(goblin);
-                Console.WriteLine($"{jogador.nome} atacou! Vida do Goblin: {goblin.vida}");
+                Console.WriteLine($"\n{jogador.nome} atacou! Vida do Goblin: {goblin.vida}");
                 if(goblin.vida <= 0)
                 {
-                    Console.WriteLine("Você derrotou esse Goblin!");
+                    Console.WriteLine("\nVocê derrotou esse Goblin!");
 
                     jogador.XpAtual += 100;
-                    Console.WriteLine($"+100 XP garantido. XP Total: {jogador.XpAtual}");
+                    Console.WriteLine($"\n+100 XP garantido. XP Total: {jogador.XpAtual}");
 
                     if(jogador.XpAtual >= 100)
                     {
                         jogador.SubirNivel();
-                        Console.WriteLine($"PARABÉNS {jogador.nome}! VOCÊ SUBIU DE NÍVEL!");
+                        Console.WriteLine($"\nPARABÉNS {jogador.nome.ToUpper()}! VOCÊ SUBIU DE NÍVEL!");
                     }
                     break;
                 }
 
                 goblin.darDano(jogador);
                 Console.WriteLine($"O Goblin revidou! Sua vida: {jogador.vida}");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 if(jogador.vida <= 0)
                 {
-                    Console.WriteLine("Você fracassou!");
+                    Console.WriteLine("\nVocê fracassou!\n");
                     return;
                 }
             }
@@ -50,17 +50,17 @@ public class Geradores
     public async Task GerarAssassino(Personagem jogador)
     {
         int quantidade = aleatorio.Next(1, 6);
-        Console.WriteLine($"Apareceram {quantidade} Assassinos!");
+        Console.WriteLine($"\nApareceram {quantidade} Assassinos!");
 
         for (int i = 0; i < quantidade; i++)
         {
             Assasino assassino = new Assasino();
-            Console.WriteLine($"Inimigo {i + 1}: \t vida {assassino.vida} \t| dano {assassino.danoBase} \t| defesa {assassino.defesa}");
+            Console.WriteLine($"\nInimigo {i + 1}: \t vida {assassino.vida} \t| dano {assassino.danoBase} \t| defesa {assassino.defesa}");
 
             while (assassino.vida > 0 && jogador.vida > 0)
             {
                 jogador.darDano(assassino);
-                Console.WriteLine($"{jogador.nome} atacou! Vida do Assassino: {assassino.vida}");
+                Console.WriteLine($"\n{jogador.nome} atacou! Vida do Assassino: {assassino.vida}");
                 if(assassino.vida <= 0)
                 {
                     break;
@@ -68,10 +68,10 @@ public class Geradores
 
                 assassino.darDano(jogador);
                 Console.WriteLine($"O Assassino revidou! Sua vida: {jogador.vida}");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 if(jogador.vida <= 0)
                 {
-                    Console.WriteLine("Você fracassou!");
+                    Console.WriteLine("\nVocê fracassou!");
                     return;
                 }
             }
@@ -81,17 +81,17 @@ public class Geradores
     public void GerarOrc(Personagem jogador)
     {
         int quantidade = aleatorio.Next(1, 6);
-        Console.WriteLine($"Apareceram {quantidade} Orcs!");
+        Console.WriteLine($"\nApareceram {quantidade} Orcs!");
 
         for (int i = 0; i < quantidade; i++)
         {
             Orc orc = new Orc();
-            Console.WriteLine($"Inimigo {i + 1}: \t vida {orc.vida} \t| dano {orc.danoBase} \t| defesa {orc.defesa}");
+            Console.WriteLine($"\nInimigo {i + 1}: \t vida {orc.vida} \t| dano {orc.danoBase} \t| defesa {orc.defesa}");
 
             while (orc.vida > 0 && jogador.vida > 0)
             {
                 jogador.darDano(orc);
-                Console.WriteLine($"{jogador.nome} atacou! Vida do Orc: {orc.vida}");
+                Console.WriteLine($"\n{jogador.nome} atacou! Vida do Orc: {orc.vida}");
                 if(orc.vida <= 0)
                 {
                     break;
@@ -99,10 +99,10 @@ public class Geradores
 
                 orc.darDano(jogador);
                 Console.WriteLine($"O Orc revidou! Sua vida: {jogador.vida}");
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
                 if(jogador.vida <= 0)
                 {
-                    Console.WriteLine("Você fracassou!");
+                    Console.WriteLine("\nVocê fracassou!");
                     return;
                 }
             }
