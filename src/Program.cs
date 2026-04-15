@@ -67,7 +67,7 @@ public class Jogo
             //treinar - aventurar
             while (opcaoValidaAcao == false)
             {
-                Console.WriteLine("\nDigite a sua opção: \n[ 1 ] - treinar\n[ 2 ] - aventurar\n[ 3 ] - ir para a dungeon");
+                Console.WriteLine("\nDigite a sua opção: \n[ 1 ] - treinar\n[ 2 ] - aventurar\n[ 3 ] - ir para a dungeon\n[ 4 ] - mostrar nivel");
                 int acao = int.Parse(Console.ReadLine() ?? "0");
 
                 if (acao == 1)
@@ -117,6 +117,11 @@ public class Jogo
                         spawnar.GerarOrc(jogador);
                         opcaoValidaAcao = false;
                     }
+                }
+                else if(acao == 4)
+                {
+                    Console.WriteLine($"\nSeu nivel atual é: {jogador.nivel}");
+                    Console.WriteLine($"\nvida: {jogador.vida} dano: {jogador.danoBase} defesa {jogador.defesa}");
                 }
                 else
                 {

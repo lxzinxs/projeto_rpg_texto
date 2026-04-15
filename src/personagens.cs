@@ -25,6 +25,7 @@ public class Personagem
         vida = vida * 1.25;
         defesa = defesa * 1.25;
         nivel = nivel + 1;
+        vida = vida + 100;
     }
 
     //elevar forca conforme o nivel

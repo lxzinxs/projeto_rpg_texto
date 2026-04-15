@@ -15,6 +15,7 @@ public class Geradores
         {
             Goblin goblin = new Goblin();
             Console.WriteLine($"\nInimigo {i + 1}: \t vida {goblin.vida} \t| dano {goblin.danoBase} \t| defesa {goblin.defesa}");
+            Console.WriteLine($"\nVocê: \t vida {jogador.vida} \t| dano {jogador.danoBase} \t| defesa {jogador.defesa}");
 
             while (goblin.vida > 0 && jogador.vida > 0)
             {
@@ -56,6 +57,7 @@ public class Geradores
         {
             Assasino assassino = new Assasino();
             Console.WriteLine($"\nInimigo {i + 1}: \t vida {assassino.vida} \t| dano {assassino.danoBase} \t| defesa {assassino.defesa}");
+            Console.WriteLine($"\nVocê: \t vida {jogador.vida} \t| dano {jogador.danoBase} \t| defesa {jogador.defesa}");
 
             while (assassino.vida > 0 && jogador.vida > 0)
             {
@@ -87,6 +89,7 @@ public class Geradores
         {
             Orc orc = new Orc();
             Console.WriteLine($"\nInimigo {i + 1}: \t vida {orc.vida} \t| dano {orc.danoBase} \t| defesa {orc.defesa}");
+            Console.WriteLine($"\nVocê: \t vida {jogador.vida} \t| dano {jogador.danoBase} \t| defesa {jogador.defesa}");
 
             while (orc.vida > 0 && jogador.vida > 0)
             {
