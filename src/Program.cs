@@ -121,7 +121,7 @@ public class Jogo
                 else if(acao == 4)
                 {
                     Console.WriteLine($"\nSeu nivel atual é: {jogador.nivel}");
-                    Console.WriteLine($"\nvida: {jogador.vida} dano: {jogador.danoBase} defesa {jogador.defesa}");
+                    Console.WriteLine($"\nvida: {jogador.vida:F0} dano: {jogador.danoBase:F0} defesa {jogador.defesa:F0}");
                 }
                 else
                 {

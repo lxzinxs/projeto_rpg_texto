@@ -15,7 +15,7 @@ public class Geradores
         {
             Goblin goblin = new Goblin();
             Console.WriteLine($"\nInimigo {i + 1}: \t vida {goblin.vida} \t| dano {goblin.danoBase} \t| defesa {goblin.defesa}");
-            Console.WriteLine($"\nVocê: \t vida {jogador.vida} \t| dano {jogador.danoBase} \t| defesa {jogador.defesa}");
+            Console.WriteLine($"\nVocê: \t vida {jogador.vida:F0} \t| dano {jogador.danoBase:F0} \t| defesa {jogador.defesa:F0}");
 
             while (goblin.vida > 0 && jogador.vida > 0)
             {
@@ -25,10 +25,10 @@ public class Geradores
                 {
                     Console.WriteLine("\nVocê derrotou esse Goblin!");
 
-                    jogador.XpAtual += 100;
-                    Console.WriteLine($"\n+100 XP garantido. XP Total: {jogador.XpAtual}");
+                    jogador.XpAtual += 50;
+                    Console.WriteLine($"\n+50 XP garantido. XP Total: {jogador.XpAtual:F0}, Falta {jogador.NextLevelXp:F0} XP Para Upar");
 
-                    if(jogador.XpAtual >= 100)
+                    if(jogador.XpAtual >= jogador.NextLevelXp)
                     {
                         jogador.SubirNivel();
                         Console.WriteLine($"\nPARABÉNS {jogador.nome.ToUpper()}! VOCÊ SUBIU DE NÍVEL!");
@@ -37,7 +37,7 @@ public class Geradores
                 }
 
                 goblin.darDano(jogador);
-                Console.WriteLine($"O Goblin revidou! Sua vida: {jogador.vida}");
+                Console.WriteLine($"O Goblin revidou! Sua vida: {jogador.vida:F0}");
                 Thread.Sleep(3000);
                 if(jogador.vida <= 0)
                 {
@@ -57,7 +57,7 @@ public class Geradores
         {
             Assasino assassino = new Assasino();
             Console.WriteLine($"\nInimigo {i + 1}: \t vida {assassino.vida} \t| dano {assassino.danoBase} \t| defesa {assassino.defesa}");
-            Console.WriteLine($"\nVocê: \t vida {jogador.vida} \t| dano {jogador.danoBase} \t| defesa {jogador.defesa}");
+            Console.WriteLine($"\nVocê: \t vida {jogador.vida:F0} \t| dano {jogador.danoBase:F0} \t| defesa {jogador.defesa:F0}");
 
             while (assassino.vida > 0 && jogador.vida > 0)
             {
@@ -65,11 +65,21 @@ public class Geradores
                 Console.WriteLine($"\n{jogador.nome} atacou! Vida do Assassino: {assassino.vida}");
                 if(assassino.vida <= 0)
                 {
+                    Console.WriteLine("\nVocê derrotou esse Assassino!");
+
+                    jogador.XpAtual =+ 100;
+                    Console.WriteLine($"\n+100 XP garantido. XP Total: {jogador.XpAtual:F0}, Falta {jogador.NextLevelXp:F0} XP Para Upar");
+
+                    if(jogador.XpAtual >= jogador.NextLevelXp)
+                    {
+                        jogador.SubirNivel();
+                        Console.WriteLine($"\nPARABÉNS {jogador.nome.ToUpper()}! VOCÊ SUBIU DE NÍVEL!");
+                    }
                     break;
                 }
 
                 assassino.darDano(jogador);
-                Console.WriteLine($"O Assassino revidou! Sua vida: {jogador.vida}");
+                Console.WriteLine($"O Assassino revidou! Sua vida: {jogador.vida:F0}");
                 Thread.Sleep(3000);
                 if(jogador.vida <= 0)
                 {
@@ -89,7 +99,7 @@ public class Geradores
         {
             Orc orc = new Orc();
             Console.WriteLine($"\nInimigo {i + 1}: \t vida {orc.vida} \t| dano {orc.danoBase} \t| defesa {orc.defesa}");
-            Console.WriteLine($"\nVocê: \t vida {jogador.vida} \t| dano {jogador.danoBase} \t| defesa {jogador.defesa}");
+            Console.WriteLine($"\nVocê: \t vida {jogador.vida:F0} \t| dano {jogador.danoBase:F0} \t| defesa {jogador.defesa:F0}");
 
             while (orc.vida > 0 && jogador.vida > 0)
             {
@@ -97,11 +107,21 @@ public class Geradores
                 Console.WriteLine($"\n{jogador.nome} atacou! Vida do Orc: {orc.vida}");
                 if(orc.vida <= 0)
                 {
+                    Console.WriteLine("\nVocê derrotou esse Orc!");
+
+                    jogador.XpAtual =+ 200;
+                    Console.WriteLine($"\n+200 XP garantido. XP Total: {jogador.XpAtual:F0}, Falta {jogador.NextLevelXp:F0} XP Para Upar");
+
+                    if(jogador.XpAtual >= jogador.NextLevelXp)
+                    {
+                        jogador.SubirNivel();
+                        Console.WriteLine($"\nPARABÉNS {jogador.nome.ToUpper()}! VOCÊ SUBIU DE NÍVEL!");
+                    }
                     break;
                 }
 
                 orc.darDano(jogador);
-                Console.WriteLine($"O Orc revidou! Sua vida: {jogador.vida}");
+                Console.WriteLine($"O Orc revidou! Sua vida: {jogador.vida:F0}");
                 Thread.Sleep(3000);
                 if(jogador.vida <= 0)
                 {

@@ -14,13 +14,13 @@ public class Personagem
     public double defesa;
     public double nivel = 1;
     public double XpAtual = 0;
-    double NextLevelXp = 100;
+    public double NextLevelXp = 100;
 
     //subir o nivel
     public void SubirNivel()
     {
         XpAtual = XpAtual - NextLevelXp;
-        NextLevelXp = NextLevelXp * 1.015;
+        NextLevelXp = NextLevelXp * 1.5;
         danoBase = danoBase * 1.25;
         vida = vida * 1.25;
         defesa = defesa * 1.25;
